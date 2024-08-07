@@ -407,8 +407,6 @@ def run_one_frame(diffusion, model, clip_model, clip_vision, args, batchNum, fra
         init = TF.to_tensor(init).to(device).unsqueeze(0).mul(2).sub(1)
 
     if args.perlin_init:
-        print("SIDE_X;Y: " + str(args.side_x) + " : " + str(args.side_y))
-        print("BATCH_SIZE: " + str(args.batch_size))
         init = disco_utils.regen_perlin(args.side_x, args.side_y, args.perlin_mode, args.batch_size)
 
     cur_t = None
